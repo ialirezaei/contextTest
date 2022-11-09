@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AllContext from '../context/all-context';
 
-const Number = ({ stepHandler, opt, TypeHandler }) => {
+const InputNumbers = () => {
+    const { handleChangeInput, handleCalculateResult, operator } = useContext(AllContext)
     return (
         <div>
-            <div className="row w-50 form-control  mx-auto text-center  mt-5 mb-5">
+            <div className="row w-50 form-control mx-auto text-center mt-5 mb-5">
                 <p>
                     لطفا عدد خود را وارد نمایید
                 </p>
@@ -13,20 +15,20 @@ const Number = ({ stepHandler, opt, TypeHandler }) => {
                     <label>
                         عدد خود را وارد نمایید
                     </label>
-                    <input type="number" id="numOne" className='form-control' onChange={TypeHandler}></input>
+                    <input type="number" name="num1" className='form-control' onChange={handleChangeInput} required='required' />
                 </div>
                 <div className='display-5'>
-                    {opt}
+                    {operator.opt}
                 </div>
                 <div className='d-flex flex-column form-control-lg'>
                     <label>
                         عدد خود را وارد نمایید
                     </label>
-                    <input type="number" id="numTwo" className='form-control' onChange={TypeHandler}></input>
+                    <input type="number" name="num2" className='form-control' onChange={handleChangeInput} />
                 </div>
             </div>
             <div>
-                <button className='btn btn-outline-primary' onClick={stepHandler}>
+                <button className='btn btn-outline-primary' onClick={handleCalculateResult}>
                     مرحله بعد
                 </button>
             </div>
@@ -34,4 +36,4 @@ const Number = ({ stepHandler, opt, TypeHandler }) => {
     )
 }
 
-export default Number
+export default InputNumbers

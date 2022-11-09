@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Result = ({ result }) => {
+const ShowResult = ({ result }) => {
     return (
         <div className='text-center'>
             نتیجه :
@@ -11,4 +11,4 @@ const Result = ({ result }) => {
     )
 }
 
-export default Result
+export default ShowResult
